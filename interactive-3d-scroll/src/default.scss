@@ -11,3 +11,31 @@
   background: url("./assets/sprite_spaceship.png") no-repeat 0 0 / auto 150px;
   animation: spaceship-ani 1s infinite steps(17);
 }
+
+.world {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80dvw;
+  height: 80dvh;
+  background-color: burlywood;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  // perspective: 500px; // 눈에서의 거리
+  .card {
+    transform: perspective(500px) rotateY(45deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    width: 20%;
+    height: 150px;
+    margin: 1em;
+    border-radius: 0.5em; //font-size에 비례하도록 em을 사용 (상대적)
+    background-color: plum;
+    font-size: 1.5rem;
+    font-weight: bold;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
