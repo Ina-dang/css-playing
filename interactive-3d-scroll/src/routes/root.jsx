@@ -1,8 +1,8 @@
 const Root = () => {
   return (
     <div>
-      <h1>CSS Animation</h1>
-      <div className="box">BOX</div>
+      {/* frame by frame animation */}
+      <div className="broken-egg"></div>
     </div>
   );
 };

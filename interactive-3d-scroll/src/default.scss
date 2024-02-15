@@ -1,29 +1,14 @@
-@keyframes move-ani {
-  0% {
-    transform: translate(0, 0);
-  }
-  50% {
-    transform: translate(300px, 0);
-    background-color: aquamarine;
-    opacity: 0.3;
-  }
-
-  100% {
-    transform: translate(500px, 300px);
+@keyframes break-egg-ani {
+  /* 0%일때는 굳이 from 안써줘도된다*/
+  /* 100% 은 to*/
+  to {
+    background-position: -500px 0;
   }
 }
-
-.box {
-  width: 100px;
-  height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid #000;
-  background-color: #fff000;
-  // animation: move-ani 3s linear infinite alternate-reverse; //무한반복 왕복
-  animation: move-ani 3s linear forwards; //끝났을때 끝지점에
-  &:hover {
-    animation-play-state: paused; //마우스 호버시에만 멈추게
-  }
+.broken-egg {
+  width: 85px;
+  height: 150px;
+  background: url("https://www.shutterstock.com/image-vector/cartoon-dragon-ice-crystal-eggs-260nw-2152129871.jpg")
+    no-repeat 0 0 / auto 150px;
+  animation: break-egg-ani 1.5s infinite steps(7);
 }
