@@ -1,20 +1,25 @@
-.box-container {
-  display: flex;
-  .box {
-    width: 100px;
-    height: 100px;
-    border: 2px solid black;
-    background-color: rgba(255, 255, 0, 0.3);
-    transition: 0.5s;
-    // transition-property: all; // 모든 요소에 사용하겠다
-    // transition-duration: 0.5s; // 재생 시간
-    // transition-timing-function: linear; // 가속시간 (기본은 ease)
-    // transition-timing-function: cubic-bezier(0.27, -0.11, 0, 1.38);
-    // transition-delay: 0.5s; // 지연시키기
-    &:hover {
-      background-color: rgba(124, 255, 0, 0.7);
-      // transform: scale(2);
-      width: 200px;
-    }
+@keyframes move-ani {
+  0% {
+    transform: translate(0, 0);
   }
+  50% {
+    transform: translate(300px, 0);
+    background-color: aquamarine;
+  }
+
+  100% {
+    transform: translate(500px, 300px);
+    opacity: 0.3;
+  }
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #000;
+  background-color: #fff000;
+  animation: move-ani 2s linear infinite;
 }
