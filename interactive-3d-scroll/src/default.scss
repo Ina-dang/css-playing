@@ -1,14 +1,13 @@
-@keyframes break-egg-ani {
+@keyframes spaceship-ani {
   /* 0%일때는 굳이 from 안써줘도된다*/
   /* 100% 은 to*/
   to {
-    background-position: -500px 0;
+    background-position: -2550px 0;
   }
 }
-.broken-egg {
-  width: 85px;
+.spaceship {
+  width: 150px;
   height: 150px;
-  background: url("https://www.shutterstock.com/image-vector/cartoon-dragon-ice-crystal-eggs-260nw-2152129871.jpg")
-    no-repeat 0 0 / auto 150px;
-  animation: break-egg-ani 1.5s infinite steps(7);
+  background: url("./assets/sprite_spaceship.png") no-repeat 0 0 / auto 150px;
+  animation: spaceship-ani 1s infinite steps(17);
 }
