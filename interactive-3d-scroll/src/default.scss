@@ -5,11 +5,11 @@
   50% {
     transform: translate(300px, 0);
     background-color: aquamarine;
+    opacity: 0.3;
   }
 
   100% {
     transform: translate(500px, 300px);
-    opacity: 0.3;
   }
 }
 
@@ -21,5 +21,9 @@
   justify-content: center;
   border: 2px solid #000;
   background-color: #fff000;
-  animation: move-ani 2s linear infinite;
+  // animation: move-ani 3s linear infinite alternate-reverse; //무한반복 왕복
+  animation: move-ani 3s linear forwards; //끝났을때 끝지점에
+  &:hover {
+    animation-play-state: paused; //마우스 호버시에만 멈추게
+  }
 }
