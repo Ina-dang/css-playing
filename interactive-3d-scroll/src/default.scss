@@ -31,6 +31,7 @@
     transform: rotateY(0deg); // before
     transition: 1s;
     transform-style: preserve-3d; // transform 시 3D 효과 적용
+    transform-origin: left;
 
     .card-side {
       display: flex;
@@ -57,7 +58,7 @@
   }
   &:hover {
     .card {
-      transform: rotateY(180deg); // after
+      transform: rotateY(-180deg); // after
     }
   }
 }
