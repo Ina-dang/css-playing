@@ -1,3 +1,5 @@
+@import "./reset.scss";
+
 @keyframes spaceship-ani {
   /* 0%일때는 굳이 from 안써줘도된다*/
   /* 100% 은 to*/
@@ -8,7 +10,7 @@
 .spaceship {
   width: 150px;
   height: 150px;
-  background: url("./assets/sprite_spaceship.png") no-repeat 0 0 / auto 150px;
+  background: url("../images/sprite_spaceship.png") no-repeat 0 0 / auto 150px;
   animation: spaceship-ani 1s infinite steps(17);
 }
 
@@ -45,6 +47,7 @@
       border-radius: 0.5em;
       font-size: 1.5em;
       font-weight: bold;
+      -webkit-backface-visibility: hidden;
       backface-visibility: hidden; // 뒷모습 가리기
     }
     .card-side-front {
