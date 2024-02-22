@@ -190,7 +190,7 @@
       &:nth-child(3) {
         @include child-property(rgba(0, 0, 255, 0.7), "../images/ilbuni_2.png");
       }
-      &:hover {
+      &.door-opened {
         .door-body {
           // 모든 시점을 통일하기위해 여기 안에도 perspective추가
           transform: perspective(800px) rotateY(-110deg);
