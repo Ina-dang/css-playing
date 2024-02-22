@@ -1,67 +1,204 @@
 @import "./reset.scss";
 
-@keyframes spaceship-ani {
-  /* 0%일때는 굳이 from 안써줘도된다*/
-  /* 100% 은 to*/
-  to {
-    background-position: -2550px 0;
+/* RootPage */
+.root-page {
+  @keyframes spaceship-ani {
+    /* 0%일때는 굳이 from 안써줘도된다*/
+    /* 100% 은 to*/
+    to {
+      background-position: -2550px 0;
+    }
+  }
+  .spaceship {
+    width: 150px;
+    height: 150px;
+    background: url("../images/sprite_spaceship.png") no-repeat 0 0 / auto 150px;
+    animation: spaceship-ani 1s infinite steps(17);
+  }
+
+  .world {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80dvw;
+    height: 80dvh;
+    background-color: burlywood;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    // perspective: 500px; // 눈에서의 거리
+
+    .card {
+      position: relative;
+      width: 100px;
+      height: 150px;
+      margin: 1em;
+      transform: rotateY(0deg); // before
+      transition: 1s;
+      transform-style: preserve-3d; // transform 시 3D 효과 적용
+      transform-origin: left;
+
+      .card-side {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 0.5em;
+        font-size: 1.5em;
+        font-weight: bold;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden; // 뒷모습 가리기
+      }
+      .card-side-front {
+        z-index: 1;
+        background-color: #fff;
+      }
+      .card-side-back {
+        background-color: red;
+        transform: rotateY(180deg);
+      }
+    }
+    &:hover {
+      .card {
+        transform: rotateY(-180deg); // after
+      }
+    }
   }
 }
-.spaceship {
-  width: 150px;
-  height: 150px;
-  background: url("../images/sprite_spaceship.png") no-repeat 0 0 / auto 150px;
-  animation: spaceship-ani 1s infinite steps(17);
+
+/* MovingCharacter */
+.moving-character {
+  .stage {
+    position: relative;
+    overflow: hidden;
+    width: 100vw;
+    height: 75vw;
+    background-color: #ffff00;
+
+    @keyframes moving {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(70vw);
+      }
+    }
+
+    .ilbuni {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: contain;
+      animation: moving infinite alternate cubic-bezier(1, 0.74, 0.22, 0.68);
+      &:nth-of-type(1) {
+        bottom: 5%;
+        left: 5%;
+        background-image: url("../images/ilbuni_0.png");
+        animation-duration: 5s;
+      }
+      &:nth-of-type(2) {
+        bottom: 3%;
+        left: 10%;
+        background-image: url("../images/ilbuni_1.png");
+        animation-duration: 3s;
+      }
+      &:nth-of-type(3) {
+        bottom: 10%;
+        left: 7%;
+        background-image: url("../images/ilbuni_2.png");
+        animation-duration: 2s;
+      }
+      &:nth-of-type(4) {
+        bottom: 4%;
+        left: 18%;
+        background-image: url("../images/ilbuni_3.png");
+        animation-duration: 4s;
+      }
+    }
+  }
 }
 
-.world {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 80dvw;
-  height: 80dvh;
-  background-color: burlywood;
-  box-sizing: border-box;
-  flex-wrap: wrap;
-  // perspective: 500px; // 눈에서의 거리
-
-  .card {
-    position: relative;
-    width: 100px;
-    height: 150px;
-    margin: 1em;
-    transform: rotateY(0deg); // before
-    transition: 1s;
-    transform-style: preserve-3d; // transform 시 3D 효과 적용
-    transform-origin: left;
-
-    .card-side {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: absolute;
+/* ThreeDoors */
+.three-doors {
+  .stage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #333;
+    @mixin door-position {
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      border-radius: 0.5em;
-      font-size: 1.5em;
-      font-weight: bold;
-      -webkit-backface-visibility: hidden;
-      backface-visibility: hidden; // 뒷모습 가리기
     }
-    .card-side-front {
-      z-index: 1;
-      background-color: #fff;
-    }
-    .card-side-back {
-      background-color: red;
-      transform: rotateY(180deg);
-    }
-  }
-  &:hover {
-    .card {
-      transform: rotateY(-180deg); // after
+    .door {
+      position: relative;
+      width: 100px;
+      height: 150px;
+      perspective: 800px;
+      div {
+        position: absolute;
+        &.door-back {
+          overflow: hidden;
+          background-color: #000;
+          @include door-position;
+          .ilbuni {
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-repeat: no-repeat;
+            background-position: 50% 100%; // 가로 센터, 수직 아래 (center bottom)
+            background-size: contain;
+            transform: translate3d(
+              100%,
+              0,
+              0
+            ); // px보다 %추천 (%기준은 해당 클래스 오브젝트의 크기를 기준으로함)
+            // transition-duration: 0.5s;
+            // transition-delay: 0.3s;
+            transition: 0.5s 0.3s;
+          }
+        }
+        &.door-body {
+          @include door-position;
+          transition: 1s;
+          transform-origin: 0%;
+        }
+      }
+      @mixin child-property($bg-color, $bg-image) {
+        .door-body {
+          background-color: $bg-color;
+        }
+        .ilbuni {
+          background-image: url($bg-image);
+        }
+      }
+      &:nth-child(1) {
+        @include child-property(rgba(255, 0, 0, 0.7), "../images/ilbuni_0.png");
+      }
+      &:nth-child(2) {
+        @include child-property(rgba(0, 255, 0, 0.7), "../images/ilbuni_1.png");
+      }
+      &:nth-child(3) {
+        @include child-property(rgba(0, 0, 255, 0.7), "../images/ilbuni_2.png");
+      }
+      &:hover {
+        .door-body {
+          // 모든 시점을 통일하기위해 여기 안에도 perspective추가
+          transform: perspective(800px) rotateY(-110deg);
+        }
+        .door-back .ilbuni {
+          transform: translate3d(0, 0, 0);
+        }
+      }
     }
   }
 }

@@ -1,6 +1,6 @@
 const Root = () => {
   return (
-    <div>
+    <div className="root-page">
       {/* frame by frame animation */}
       <div className="spaceship"></div>
       <div className="world">

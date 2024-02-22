@@ -10,10 +10,12 @@ const MovingCharacter = () => {
   };
 
   return (
-    <div className="stage">
-      {characters.map((item) => (
-        <div key={item} className="ilbuni" onClick={handleIlbuni(item)}></div>
-      ))}
+    <div className="moving-character">
+      <div className="stage">
+        {characters.map((item) => (
+          <div key={item} className="ilbuni" onClick={handleIlbuni(item)}></div>
+        ))}
+      </div>
     </div>
   );
 };
