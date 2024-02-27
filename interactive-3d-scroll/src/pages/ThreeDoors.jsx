@@ -5,7 +5,6 @@ const ThreeDoors = () => {
   const [open, setOpen] = useState([false, false, false]);
 
   const handleDoor = (index) => () => {
-    console.log(index);
     setOpen((prev) => {
       const updateOpenStatus = [...prev];
       updateOpenStatus[index] = !updateOpenStatus[index];
