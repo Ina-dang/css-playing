@@ -1,7 +1,13 @@
 import ReactDOM from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./assets/css";
-import { Root, MovingCharacter, ThreeDoors, TryScrollEvent } from "./pages";
+import {
+  Root,
+  MovingCharacter,
+  ThreeDoors,
+  TryScrollEvent,
+  MoveTheBall,
+} from "./pages";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +25,10 @@ const router = createBrowserRouter([
   {
     path: "/try-scroll",
     element: <TryScrollEvent />,
+  },
+  {
+    path: "/move-the-ball",
+    element: <MoveTheBall />,
   },
 ]);
 
