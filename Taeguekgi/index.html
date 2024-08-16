@@ -9,6 +9,7 @@
         zoom: 0.3;
         margin: 0 auto;
       }
+
       #flag {
         position: relative;
         width: 1800px;
@@ -16,18 +17,115 @@
         border: 1px solid black;
         display: flex;
         justify-content: center;
-        background-image: linear-gradient(
-            to left bottom,
-            transparent calc(50% - 1px),
-            black,
-            transparent calc(50% + 1px)
-          ),
-          linear-gradient(
-            to right bottom,
-            transparent calc(50% - 1px),
-            black,
-            transparent calc(50% + 1px)
-          );
+      }
+
+      #group1 {
+        display: inline-flex;
+        align-items: center;
+        rotate: 33.5deg;
+      }
+
+      #gun {
+        margin-right: 150px;
+        width: 200px;
+        height: 300px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+      }
+
+      #gun > div,
+      #gon > div,
+      #gam > div,
+      #li > div {
+        background: #000;
+      }
+
+      #circles {
+        width: 600px;
+        height: 600px;
+        position: relative;
+      }
+
+      #top {
+        width: 600px;
+        height: 300px;
+        border-radius: 300px 300px 0 0;
+        background-color: red;
+      }
+
+      #bottom {
+        width: 600px;
+        height: 300px;
+        border-radius: 0 0 300px 300px;
+        background-color: blue;
+      }
+
+      #left {
+        width: 300px;
+        height: 300px;
+        border-radius: 150px;
+        background-color: red;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      #right {
+        width: 300px;
+        height: 300px;
+        border-radius: 150px;
+        background-color: blue;
+        position: absolute;
+        right: 0;
+        bottom: 50%;
+        transform: translateY(50%);
+      }
+
+      #gon {
+        margin-left: 150px;
+        width: 200px;
+        height: 300px;
+        display: grid;
+        grid-template-columns: repeat(3, 3fr);
+        gap: 25px;
+      }
+
+      #group2 {
+        display: inline-flex;
+        position: absolute;
+        align-self: center;
+        justify-self: center;
+        rotate: -33.5deg;
+      }
+
+      #li {
+        margin-right: 450px;
+        width: 200px;
+        height: 300px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-auto-flow: column;
+        gap: 25px;
+      }
+      #li :first-child,
+      #li :last-child {
+        grid-row: span 2;
+      }
+
+      #gam {
+        margin-left: 450px;
+        width: 200px;
+        height: 300px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 25px;
+      }
+      #gam :nth-child(2) {
+        grid-row: span 2;
       }
     </style>
   </head>
@@ -54,20 +152,20 @@
           <div></div>
         </div>
       </div>
-      <div id="group">
+      <div id="group2">
         <div id="li">
           <div></div>
           <div></div>
           <div></div>
           <div></div>
         </div>
-      </div>
-      <div id="gam">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+        <div id="gam">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
       </div>
     </div>
   </body>
