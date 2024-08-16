@@ -1,3 +1,4 @@
+export * from "./Move3DWalls";
 export * from "./MoveTheBall";
 export * from "./MovingCharacter";
 export * from "./RootPage";

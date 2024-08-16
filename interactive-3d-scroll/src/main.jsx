@@ -7,6 +7,7 @@ import {
   ThreeDoors,
   TryScrollEvent,
   MoveTheBall,
+  Move3DWalls,
 } from "./pages";
 
 const router = createBrowserRouter([
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
   {
     path: "/move-the-ball",
     element: <MoveTheBall />,
+  },
+  {
+    path: "/move-3d-wall",
+    element: <Move3DWalls />,
   },
 ]);
 
