@@ -51,21 +51,21 @@
         width: 600px;
         height: 300px;
         border-radius: 300px 300px 0 0;
-        background-color: red;
+        background-color: rgb(205, 46, 58);
       }
 
       #bottom {
         width: 600px;
         height: 300px;
         border-radius: 0 0 300px 300px;
-        background-color: blue;
+        background-color: rgb(0, 71, 160);
       }
 
       #left {
         width: 300px;
         height: 300px;
         border-radius: 150px;
-        background-color: red;
+        background-color: rgb(205, 46, 58);
         position: absolute;
         left: 0;
         top: 50%;
@@ -76,7 +76,7 @@
         width: 300px;
         height: 300px;
         border-radius: 150px;
-        background-color: blue;
+        background-color: rgb(0, 71, 160);
         position: absolute;
         right: 0;
         bottom: 50%;
@@ -168,5 +168,15 @@
         </div>
       </div>
     </div>
+    <script>
+      function rad2deg(rad) {
+        return rad * (180 / Math.PI);
+      }
+
+      document.querySelector('#group1').style.rotate =
+        rad2deg(Math.acos(3 / Math.sqrt(13))) + 'deg';
+      document.querySelector('#group2').style.rotate =
+        rad2deg(Math.acos(3 / Math.sqrt(13))) * -1 + 'deg';
+    </script>
   </body>
 </html>
